@@ -11,10 +11,12 @@
 
 
     <div id="button_div">
-        <h1>Bat ball game </h1>
+        <h1>Cricket With computer </h1>
         <button class="button" onclick=" handlechoice('bat') "> bat </button>
         <button class="button" onclick="handlechoice('ball')"> ball </button>
         <button class="button" onclick="handlechoice('Wicket')"> wicket </button>
+
+
 
     </div>
 
@@ -24,13 +26,18 @@
     <script>
         let computer_choice;
         let user_choice;
+        let scores = {
+            user_wins: 0,
+            computer_wins: 0,
+            user_ties: 0,
+        }
 
         function handlechoice(choice) {
             user_choice = choice;
             computerchoice();
 
         }
-        
+
         function computerchoice() {
             computer_choice = Math.random() * 3;
 
@@ -51,6 +58,11 @@
             show_result(user_choice, computer_choice);
 
         }
+
+
+
+
+
 
         let result;
         function show_result() {
@@ -73,9 +85,25 @@
 
             }
             alert(result);
+            final_score();
         }
+        function final_score() {
+            if (result === "its a tie") {
+                scores.user_ties++;
 
 
+            }
+            else if (result === "user won") {
+                scores.user_wins++;
+
+            }
+            else if (result === "computer won") {
+                scores.computer_wins++;
+
+            }
+            alert(`the number is user wins are ${scores.user_wins} and number of computer wins are ${scores.computer_wins} and the number of ties are ${scores.user_ties}`);
+
+        }
 
 
 
