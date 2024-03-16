@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Bat Ball game </title>
+</head>
+
+<body>
+
+
+    <div id="button_div">
+        <h1>Bat ball game </h1>
+        <button class="button" onclick=" handlechoice('bat') "> bat </button>
+        <button class="button" onclick="handlechoice('ball')"> ball </button>
+        <button class="button" onclick="handlechoice('Wicket')"> wicket </button>
+
+    </div>
+
+
+
+
+    <script>
+        let computer_choice;
+        let user_choice;
+
+        function handlechoice(choice) {
+            user_choice = choice;
+            computerchoice();
+
+        }
+        
+        function computerchoice() {
+            computer_choice = Math.random() * 3;
+
+            if (computer_choice > 0 && computer_choice <= 1) {
+                computer_choice = 'bat';
+
+
+            } else if (computer_choice > 1 && computer_choice <= 2) {
+                computer_choice = 'ball';
+            }
+            else {
+                computer_choice = 'Wicket';
+
+            }
+
+            alert(`user has choosen ${user_choice} and computer has choosen ${computer_choice}`);
+
+            show_result(user_choice, computer_choice);
+
+        }
+
+        let result;
+        function show_result() {
+            if (computer_choice === user_choice) {
+                result = "its a tie";
+
+
+            } else if (computer_choice === 'bat' && user_choice === 'ball') {
+                result = "user won";
+
+            } else if (computer_choice === 'ball' && user_choice === 'bat') {
+                result = "computer won ";
+            }
+            else if (computer_choice === 'bat' && user_choice === 'Wicket') {
+                result = "user won";
+
+            }
+            else if (computer_choice === 'Wicket' && user_choice === 'bat') {
+                result = "computer won";
+
+            }
+            alert(result);
+        }
+
+
+
+
+
+    </script>
+</body>
+
+
+</html>
